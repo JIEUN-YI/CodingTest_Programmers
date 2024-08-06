@@ -54,9 +54,9 @@
             int result = num1 / num2;
             return result;
         }
-        static void Main(string[] args)
+        /*static void Main(string[] args)
         {
 
-        }
+        }*/
     }
 }
