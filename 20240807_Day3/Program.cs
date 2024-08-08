@@ -1,4 +1,7 @@
-﻿namespace _20240807_Day3
+﻿using System.ComponentModel.DataAnnotations;
+using System.Runtime.InteropServices;
+
+namespace _20240807_Day3
 {
     public class Program
     {
@@ -41,8 +44,32 @@
         ///        최빈값이 여러 개면 -1을 return 합니다.
         /// 예시 : [ 1, 2, 3, 3, 3, 4 ] => 3 / [ 1, 1, 2, 2 ] => -1 / [ 1 ] => 1
         /// </summary>
+        struct CountNum
+        {
+            public static int num;
+            public static int count;
+        }
+
         public static void FindFrequency(int[] array)
         {
+            Array.Sort(array);//주어진 배열을 정렬
+            List<CountNum> list = new List<CountNum>(); //정렬한 배열의 숫자와 개수를 정리할 리스트 제작
+            int count = 1;
+            for(int i = 1; i < array.Length; i++)
+            {
+                if(array[i-1] == array[i])
+                {
+                    count++;
+                }
+                else if (array[i - 1] != array[i])
+                {
+                    CountNum.num = array[i];
+                    CountNum.count = count;
+                    Console.WriteLine($"{CountNum.num} | {CountNum.count}");
+                    list.Add(new CountNum());
+                    count = 1;
+                }  
+            }
 
         }
 
@@ -57,7 +84,8 @@
 
         static void Main(string[] args)
         {
-
+            int[] array = { 7, 7, 6, 1, 1, 5, 5, 6, 1, 1 };
+            FindFrequency(array);
 
         }
     }
