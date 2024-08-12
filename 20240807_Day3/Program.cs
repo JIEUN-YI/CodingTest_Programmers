@@ -55,22 +55,28 @@ namespace _20240807_Day3
             Array.Sort(array);//주어진 배열을 정렬
             List<CountNum> list = new List<CountNum>(); //정렬한 배열의 숫자와 개수를 정리할 리스트 제작
             int count = 1;
+            // 배열의 전부를 탐색하면서
             for(int i = 1; i < array.Length; i++)
             {
-                if(array[i-1] == array[i])
+                if(array[i-1] == array[i]) // 배열의 두 값이 같으면 카운트
                 {
                     count++;
                 }
-                else if (array[i - 1] != array[i])
+                else if (array[i - 1] != array[i]) // 배열의 두 값이 다르면 이전 값 까지의 카운트와 값을 리스트에 저장
                 {
-                    CountNum.num = array[i];
+                    CountNum.num = array[i-1];
                     CountNum.count = count;
-                    Console.WriteLine($"{CountNum.num} | {CountNum.count}");
-                    list.Add(new CountNum());
-                    count = 1;
+                    Console.WriteLine($"{CountNum.num} | {CountNum.count}"); // 확인용 출력
+                    list.Add(new CountNum());// 리스트에 저장
+                    count = 1; // 카운트를 1로 변경
                 }  
             }
+            CountNum.num = array.Last(); // 배열의 마지막 값을 저장
+            CountNum.count = count; // 배열의 마지막 값의 카운트를 저장
+            Console.WriteLine($"{CountNum.num} | {CountNum.count}"); // 확인용 출력
+            list.Add(new CountNum());
 
+            
         }
 
         /// <summary>
@@ -86,7 +92,6 @@ namespace _20240807_Day3
         {
             int[] array = { 7, 7, 6, 1, 1, 5, 5, 6, 1, 1 };
             FindFrequency(array);
-
         }
     }
 }
