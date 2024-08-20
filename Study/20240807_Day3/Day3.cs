@@ -1,7 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-using System.Runtime.InteropServices;
-
-namespace _20240807_Day3
+﻿namespace _20240807_Day3
 {
     public class Day3
     {
@@ -44,14 +41,27 @@ namespace _20240807_Day3
         ///        최빈값이 여러 개면 -1을 return 합니다.
         /// 예시 : [ 1, 2, 3, 3, 3, 4 ] => 3 / [ 1, 1, 2, 2 ] => -1 / [ 1 ] => 1
         /// </summary>
-        struct CountNum
+        public static int FindFrequency(int[] array)
         {
-            public static int num;
-            public static int count;
-        }
+            Array.Sort(array);
+            Dictionary<int, int> FindDic = new Dictionary<int, int>();
+            int result = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                int value = 1;
+                if (FindDic.ContainsKey(array[i]) == false)
+                {
+                    FindDic.Add(array[i], value);
+                }
+                else if (FindDic.ContainsKey(array[i]) != false)
+                {
+                    FindDic[array[i]] += 1;
+                }
+            }
 
-        public static void FindFrequency(int[] array)
-        {
+            return result;
+
+            /*
             Array.Sort(array);//주어진 배열을 정렬
             List<CountNum> list = new List<CountNum>(); //정렬한 배열의 숫자와 개수를 정리할 리스트 제작
             int count = 1;
@@ -75,8 +85,9 @@ namespace _20240807_Day3
             CountNum.count = count; // 배열의 마지막 값의 카운트를 저장
             Console.WriteLine($"{CountNum.num} | {CountNum.count}"); // 확인용 출력
             list.Add(new CountNum());
+            */
 
-            
+
         }
 
         /// <summary>
