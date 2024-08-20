@@ -3,7 +3,7 @@ using System.Runtime.InteropServices;
 
 namespace _20240807_Day3
 {
-    public class Program
+    public class Day3
     {
         /// <summary>
         /// 제목 : 나머지 구하기
@@ -87,12 +87,6 @@ namespace _20240807_Day3
         /// 예시 : ( 10 ) => [ 1, 3, 5, 7, 9 ] / ( 15 ) => [ 1, 3, 5, 7, 9, 11, 13, 15 ] 
         /// </summary>
 
-
-        static void Main(string[] args)
-        {
-            int[] array = { 7, 7, 6, 1, 1, 5, 5, 6, 1, 1 };
-            FindFrequency(array);
-        }
     }
 }
 

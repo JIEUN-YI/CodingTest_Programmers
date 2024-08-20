@@ -1,6 +1,6 @@
 ﻿namespace _20240805_Day2
 {
-    public class Program
+    public class Day2
     {
         /// <summary>
         /// 제목 : 두 수의 나눗셈
@@ -99,10 +99,5 @@
             }
             return multiplyArray;
         }
-
-        /*static void Main(string[] args)
-        {
-            
-        }*/
     }
 }

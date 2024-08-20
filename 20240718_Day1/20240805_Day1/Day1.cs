@@ -1,6 +1,6 @@
 ﻿namespace _20240718_Day1
 {
-    public class Program
+    public class Day1
     {
         /// <summary>
         /// Day1 - 두 수의 합을 구하는 코딩테스트
@@ -54,9 +54,5 @@
             int result = num1 / num2;
             return result;
         }
-        /*static void Main(string[] args)
-        {
-
-        }*/
     }
 }
